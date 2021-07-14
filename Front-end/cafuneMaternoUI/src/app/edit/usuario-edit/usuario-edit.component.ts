@@ -18,6 +18,8 @@ export class UsuarioEditComponent implements OnInit {
   user: Usuarios = new Usuarios()
   foto: string
   idUser: number
+  show: boolean
+  pwdType = 'password'
 
   constructor(
     private router: Router,
@@ -56,6 +58,14 @@ export class UsuarioEditComponent implements OnInit {
         environment.foto = ''
         environment.email = ''
   })
+
+  }
+
+  showPass() {
+
+    this.show = !this.show
+    this.pwdType = this.show ? 'password' : 'text'
+
 
   }
 

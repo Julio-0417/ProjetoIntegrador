@@ -7,9 +7,7 @@
         <div class="col-md-4">
           <div class="form-group d-flex align-items-center">
             <input type="text" class="form-control" id="descricao" placeholder="Digite o que você deseja buscar">
-            <span class="input-group-addon">
               <button class="ml-1 fas fa-search fa-2x text-white" style="background:transparent;border:none"></button>
-            </span>
           </div>
         </div>
       </div>
@@ -119,7 +117,7 @@
                 </div>
 
 
-                <div class="col-md-4 mt-5">
+                <div class="col-md-4">
                   <div class="d-flex justify-content-center flex-column align-items-center">
 
                     <div class="table table-borderless bg-white container p-3">
@@ -127,21 +125,21 @@
                       <div class="d-flex align-items-center">
                         <div class="flex-shrink-0 mr-3"><i class="fas fa-pencil-alt w-1em"></i></div>
                         <input [(ngModel)]='postagens.tituloPostagem' type="email" class="form-control bg-cz w-100"
-                          id="titulo" placeholder="Título da Postagem">
+                          id="titulo" placeholder="Título da Postagem" (keydown.enter)='postar()'>
                       </div>
 
 
                       <div class="d-flex align-items-center mt-3">
                         <div class="flex-shrink-0 mr-3"><i class="far fa-file-alt w-1em"></i></div>
                         <input [(ngModel)]='postagens.descricaoPostagem' type="email" class="form-control bg-cz w-100"
-                          id="publicacao" placeholder="O que esta pensando?">
+                          id="publicacao" placeholder="O que esta pensando?" (keydown.enter)='postar()'>
                       </div>
 
 
                       <div class="d-flex align-items-center mt-3">
                         <div class="flex-shrink-0 mr-3"><i class="fas fa-camera-retro text-dark w-1em"></i></div>
                         <input [(ngModel)]='postagens.urlAnexo' type="email" class="form-control bg-cz w-100"
-                          id="publicacao" placeholder="Coloque aqui o link de uma imagem">
+                          id="publicacao" placeholder="Coloque aqui o link de uma imagem" (keydown.enter)='postar()'>
                       </div>
 
                       <div class="row mr-4 mt-4">
@@ -237,7 +235,7 @@
                         <td class="d-flex justify-content-end">
                           <button class="btn btn bg-pink w-100" *ngIf="verificaUsuarioGrupo(i)"
                             (click)='entrarGrupo(i)'>Participar<i class=" ml-2 fas fa-plus-circle"></i></button>
-                          <p class="btn btn-outline-secondary aria-disabled w-100" *ngIf="!verificaUsuarioGrupo(i)">
+                          <p class="btn btn-outline-secondary aria-disabled w-100" *ngIf="!verificaUsuarioGrupo(i)" [routerLink]="['/pagina-grupo',i.idGrupo]">
                             Membro</p>
                         </td>
                         <td>
@@ -421,11 +419,11 @@
         <div class="modal-body">
           <div class="form-group">
             <input [(ngModel)]='grupos.nomeGrupo' type="text" class="form-control" id="grupos.nomeGrupo"
-              placeholder="Digite o nome do grupo:">
+              placeholder="Digite o nome do grupo:" (keydown.enter)='cadastrar()'>
           </div>
           <div class="form-group">
             <input [(ngModel)]='grupos.tema' type="text" class="form-control" id="grupos.tema"
-              placeholder="Digite a descrição do tema do grupo:">
+              placeholder="Digite a descrição do tema do grupo:" (keydown.enter)='cadastrar()'>
           </div>
           <div class="form-group">
             <input [(ngModel)]='grupos.foto' type="text" class="form-control" id="grupos.foto"

@@ -10,14 +10,14 @@
         <div class="card-body bgwh jumbotron mb-0 p-4">
           <div class="form-group">
             <img src="https://i.imgur.com/y9k3B9T.png" alt="Logo" class="w-100 mb-2">
-            <input [(ngModel)]='postagens.tituloPostagem' placeholder="Título da Postagem" class="w-100 bg-w-purple">
+            <input [(ngModel)]='postagens.tituloPostagem' placeholder="Título da Postagem" class="w-100 bg-w-purple" (keydown.enter)='cadastrarPostagem()'>
           </div>
           <div class="form-group">
             <input [(ngModel)]='postagens.descricaoPostagem' placeholder="Escreva suas ideias, dúvidas e experiências."
-              class="w-100 bg-w-purple">
+              class="w-100 bg-w-purple" (keydown.enter)='cadastrarPostagem()'>
           </div>
           <div class="form-group">
-            <input [(ngModel)]='postagens.urlAnexo' placeholder="Coloque seus anexos" class="w-100 bg-w-purple">
+            <input [(ngModel)]='postagens.urlAnexo' placeholder="Coloque seus anexos" class="w-100 bg-w-purple" (keydown.enter)='cadastrarPostagem()'>
           </div>
           <div class="d-flex justify-content-end mt-3">
             <button class="btn bg-purple mb-0 text-white w-25" (click)='cadastrarPostagem()'>Publicar</button>

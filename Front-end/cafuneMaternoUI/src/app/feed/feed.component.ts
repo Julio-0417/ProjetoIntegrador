@@ -89,6 +89,8 @@ export class FeedComponent implements OnInit {
   }
 
   verificaUsuarioGrupo(grupo: Grupos) {
+
+    if(!this.usuarios.listaGrupos) return true;
     let ok: boolean = true
     //console.log(this.usuarios.listaGrupos.includes(grupo))
     //return this.usuarios.listaGrupos.includes(grupo)
