@@ -6,6 +6,7 @@ import { Postagens } from '../model/Postagens';
 import { Usuarios } from '../model/Usuarios';
 import { AlertasService } from '../service/alertas.service';
 import { GruposService } from '../service/grupos.service';
+import { PostagemService } from '../service/postagem.service';
 @Component({
   selector: 'app-feed',
   templateUrl: './feed.component.html',
@@ -22,6 +23,7 @@ export class FeedComponent implements OnInit {
   constructor(
     private router: Router,
     private gruposService: GruposService,
+    private postagemService: PostagemService,
     private alertas: AlertasService
   ) { }
 
@@ -32,8 +34,10 @@ export class FeedComponent implements OnInit {
       this.alertas.showAertInfo('É necessário logar novamente')
     }
     this.gruposService.refreshToken()
+    this.postagemService.refreshToken()
     this.findAllGrupos()
     this.findAllPostagens()
+    
   }
 
 

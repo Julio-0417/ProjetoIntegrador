@@ -8,16 +8,22 @@
     <div class="col-md-5 mt-3 mr-3">
       <div class="card w-100">
         <div class="card-body bgwh jumbotron mb-0 p-4">
-          <div class="form-group">
-            <img src="https://i.imgur.com/y9k3B9T.png" alt="Logo" class="w-100 mb-2">
-            <input [(ngModel)]='postagens.tituloPostagem' placeholder="Título da Postagem" class="w-100 bg-w-purple" (keydown.enter)='cadastrarPostagem()'>
+          <img src="https://i.imgur.com/y9k3B9T.png" alt="Logo" class="w-100 mb-2">
+
+          <div class="d-flex align-items-center mt-3">
+          <div class="form-group flex-shrink-0 mr-3"><i class="fas fa-pencil-alt w-1em"></i></div>
+              <input [(ngModel)]='postagens.tituloPostagem' placeholder="Título da Postagem" class="form-control w-100 bg-cz"
+                (keydown.enter)='cadastrarPostagem()'>
           </div>
-          <div class="form-group">
+          <div class="d-flex align-items-center mt-3">
+            <div class="form-group flex-shrink-0 mr-3"><i class="fas fa-pencil-alt w-1em"></i></div>
             <input [(ngModel)]='postagens.descricaoPostagem' placeholder="Escreva suas ideias, dúvidas e experiências."
-              class="w-100 bg-w-purple" (keydown.enter)='cadastrarPostagem()'>
+              class="form-control w-100 bg-cz" (keydown.enter)='cadastrarPostagem()'>
           </div>
-          <div class="form-group">
-            <input [(ngModel)]='postagens.urlAnexo' placeholder="Coloque seus anexos" class="w-100 bg-w-purple" (keydown.enter)='cadastrarPostagem()'>
+          <div class="d-flex align-items-center mt-3">
+            <div class="form-group flex-shrink-0 mr-3"><i class="fas fa-camera-retro text-dark w-1em"></i></div>
+            <input [(ngModel)]='postagens.urlAnexo' placeholder="Coloque aqui o link de uma imagem" class="form-control w-100 bg-cz"
+              (keydown.enter)='cadastrarPostagem()'>
           </div>
           <div class="d-flex justify-content-end mt-3">
             <button class="btn bg-purple mb-0 text-white w-25" (click)='cadastrarPostagem()'>Publicar</button>
@@ -25,58 +31,59 @@
         </div>
       </div>
 
-      <div class="card scrollpost mb-5 mt-3 w-100">
-        <div class="row" *ngFor='let i of grupo.post'>
-          <div class="w-100 p-4">
+
+      <div class="row" *ngFor='let i of grupo.post'>
+        <div class="w-100 p-4">
             <li>
-              <div class="col-md-12 justify-content-center">
-                <div class="card bg-light mb-2">
-                  <div class="card-header bg-pink">
 
-                    <div class="row">
-                      <div class="col-md-2 ">
+              <div class="card bg-light mb-2 w-100">
+                <div class="card-header bg-pink">
 
-                        <img src="{{i.usuario.foto}}" alt="foto perfil" width="70px" height="70px"
-                          class="rounded-circle">
-                          </div>
-                          <div class="col-md-9">
-                        <h5>{{i.usuario.nomeCompleto}}</h5>
-                        </div>
-
-                      </div>
-
-                    </div>
-                    <div class="row">
-                  </div>
-                  <img *ngIf='!(i.urlAnexo == null)' class="card-img-top" src="{{i.urlAnexo}}" alt="Imagem de capa do card">
-                  <div class="card-body">
-                    <h5 class="card-title">{{i.tituloPostagem}}</h5>
-                    <p class="card-text">
-                      {{i.descricaoPostagem}}
-                    </p>
-                  </div>
                   <div class="row">
-                    <div class="col-md-12 ">
-                      <h5 class="card-text "><small class="text-muted d-flex justify-content-end mr-1">{{i.date | date:
-                          'dd/MM/yyyy'}} às
-                          {{i.date | date: 'HH:mm'}}</small></h5>
+                    <div class="col-md-2 ">
+
+                      <img src="{{i.usuario.foto}}" alt="foto perfil" width="70px" height="70px" class="rounded-circle bg-white" onerror="src='https://i.imgur.com/SrzGe8e.png'">
                     </div>
+                    <div class="col-md-8 justify-content-start">
+                      <h5>{{i.usuario.nomeCompleto}}</h5>
+                    </div>
+
                   </div>
 
                 </div>
-              </div>
-            </li>
-          </div>
+                <div class="row">
+                </div>
+                <img *ngIf='!(i.urlAnexo == null)' class="card-img-top" src="{{i.urlAnexo}}"
+                  alt="Imagem de capa do card">
+                <div class="card-body">
+                  <h5 class="card-title">{{i.tituloPostagem}}</h5>
+                  <p class="card-text">
+                    {{i.descricaoPostagem}}
+                  </p>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 ">
+                    <h5 class="card-text "><small class="text-muted d-flex justify-content-end mr-1">{{i.date | date:
+                        'dd/MM/yyyy'}} às
+                        {{i.date | date: 'HH:mm'}}</small></h5>
+                  </div>
+                </div>
 
+              </div>
+
+            </li>
+         
         </div>
+
       </div>
 
+
     </div>
-    <div class='justify-content-center'>
+    <div class='justify-content-center scrollgroup'>
       <div class="jumbotron bgwh mt-3 mr-5">
         <div class="row">
           <div class="col-md-12 d-flex justify-content-center">
-            <img src="{{grupo.foto}}" alt="Imagem do grupo" width="100px" height="100px" class="rounded-circle">
+            <img src="{{grupo.foto}}" alt="Imagem do grupo" width="100px" height="100px" class="rounded-circle bg-white" onerror="src='https://i.imgur.com/SZf8Xn4.png'">
           </div>
         </div>
         <div class="row">

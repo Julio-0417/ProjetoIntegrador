@@ -44,3 +44,9 @@ ul.social-network li{
 .fa-github:hover{
     color:  purple;
 }
+
+.fixfoot{
+    bottom: 0px;
+    position: static;
+    z-index: 10;
+}

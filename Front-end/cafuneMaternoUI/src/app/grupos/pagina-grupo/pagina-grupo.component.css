@@ -15,10 +15,14 @@ li {
   list-style-type: none;
 }
 
-.scrollpost{
-  overflow: auto;
-  height: 250px;
-  width: 75%;
+.scrollgroup{
+  top: 200px;
+  right: 100px;
+
+
+
+
+  
 }
 
 .bgwh{
@@ -43,4 +47,12 @@ li {
 
 .testador {
   background-color: #0069D9;
+}
+
+.bg-cz{
+  background-color: #d4d4d4;
+}
+
+.w-1em {
+  width: 1em;
 }
