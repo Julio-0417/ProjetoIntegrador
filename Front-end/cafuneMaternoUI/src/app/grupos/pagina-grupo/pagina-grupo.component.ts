@@ -39,7 +39,7 @@ export class PaginaGrupoComponent implements OnInit {
   ngOnInit()  {
     if(environment.token == '') {
       this.router.navigate(['/home'])
-      this.alertas.showAertInfo('É necessário logar novamente')
+      this.alertas.showAlertInfo('É necessário logar novamente')
     }
     this.idUsuario = environment.idUserLogin
     this.idGrupo = this.route.snapshot.params['id']
@@ -97,14 +97,18 @@ export class PaginaGrupoComponent implements OnInit {
   }
 
   cadastrarPostagem() {
-    console.log(this.grupo)
-    this.postagens.grupoPertencente = this.grupo
-    this.postagemService.postPostagem(this.postagens, this.idUser).subscribe((resp: Postagens)=>{
-      this.postagens = resp
-      this.alertas.showAlertSuccess("Postagem realizada com sucesso!")
-      this.postagens = new Postagens()
-      this.findAllPostagem()
-    })
+    if (this.postagens.tituloPostagem.length >= 5 && this.postagens.descricaoPostagem.length >= 5) {
+      this.postagens.grupoPertencente = this.grupo
+      this.postagemService.postPostagem(this.postagens, this.idUser).subscribe((resp: Postagens)=>{
+        this.postagens = resp
+        this.alertas.showAlertSuccess("Postagem realizada com sucesso!")
+        this.postagens = new Postagens()
+        this.findAllPostagem()
+      })
+    } else {
+      this.alertas.showAlertDanger("É necessário que o titulo e a postagem tenham mais de 5 caracteres")
+    }
+
   }
 
   findAllPostagem() {

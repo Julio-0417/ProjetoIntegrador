@@ -30,7 +30,7 @@ export class MinhasPostagensComponent implements OnInit {
   ngOnInit() {
     window.scroll(0, 0)
     if (environment.token == '') {
-      this.alertas.showAertInfo('Sua sessão expirou!')
+      this.alertas.showAlertInfo('Sua sessão expirou!')
       this.router.navigate(['/home'])
     }
     this.gruposService.refreshToken()

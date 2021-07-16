@@ -31,7 +31,7 @@ export class UsuarioEditComponent implements OnInit {
 
   ngOnInit() {
     if(environment.token == ''){
-      this.alertas.showAertInfo('Sua sessão expirou, faça o login novamente')
+      this.alertas.showAlertInfo('Sua sessão expirou, faça o login novamente')
       this.router.navigate(['/entrar'])
   }
   this.idUser = this.route.snapshot.params['id']

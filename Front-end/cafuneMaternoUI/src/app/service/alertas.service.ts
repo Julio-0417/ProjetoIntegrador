@@ -24,7 +24,7 @@ export class AlertasService {
     this.showAlert(message, 'success')
   }
 
-  showAertInfo(message: string) {
+  showAlertInfo(message: string) {
     this.showAlert(message, 'info')
   }
 }
