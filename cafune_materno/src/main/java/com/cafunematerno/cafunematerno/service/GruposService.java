@@ -155,18 +155,18 @@ public class GruposService {
 	 * Deleta um grupo a partir do Id, caso exista.
 	 * @param idGrupo
 	 * @return Retorna um status 400 caso não exista, ou deleta o grupo caso exista.
-	 * @since 1.0
+	 * @since 2.0
 	 * @author Grupo:Angelo, Ellen, Julio, Luciano e Nathalia.
 	 */
 
-	public ResponseEntity<String> deletarIdGrupo(Long idGrupo) {
+	public ResponseEntity<Grupos> deletarIdGrupo(Long idGrupo) {
 		Optional<Grupos> idGrupoExistente = repositoryGrupos.findById(idGrupo);
 
 		if (idGrupoExistente.isEmpty()) {
-			return ResponseEntity.status(400).body("Grupo não localizado. Por favor tente outra");
+			return ResponseEntity.status(400).build();
 		} else {
 			repositoryGrupos.deleteById(idGrupo);
-			return ResponseEntity.status(200).body("Grupo deletado com sucesso!");
+			return ResponseEntity.status(200).build();
 		}
 	}
 }

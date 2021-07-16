@@ -68,7 +68,7 @@ public class GruposController {
 	}
 	
 	@DeleteMapping("/deletar")
-	public ResponseEntity<String> deletarGrupoAtravesDoId(@RequestParam Long idGrupo) {
+	public ResponseEntity<Grupos> deletarGrupoAtravesDoId(@RequestParam Long idGrupo) {
 		return serviceGrupos.deletarIdGrupo(idGrupo);
 	}
 }

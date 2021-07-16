@@ -56,7 +56,7 @@ public class PostagensController {
 	}
 	
 	@DeleteMapping("/deletar")
-	public ResponseEntity<String> deletarPostagemAtravesDoId(@RequestParam Long idPostagem) {
+	public ResponseEntity<Postagens> deletarPostagemAtravesDoId(@RequestParam Long idPostagem) {
 		return servicePostagens.deletarIdPostagem(idPostagem);
 	}
 }
