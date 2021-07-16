@@ -1,24 +1,11 @@
-<div class="container mb-5 mt-5">
-  <div class="col-md-1 mt-1 point">
+<div class="container-fluid bg-w-pink">
+  <div class="col-md-1  point">
     <p routerLink='/feed' class="point"> <i class="fa fa-arrow-left point" aria-hidden="true"></i> Voltar</p>
   </div>
-  <div class="row mt-4" *ngFor='let i of user.postagens'>
-    <div class="col-md-12 d-flex justify-content-center">
-      <div class="card bg-light mb-2 w-50">
-        <div class="card-header bg-pink">
-          <div class="row">
-            <div class="col-md-2">
-              <img src="{{user.foto}}" alt="foto perfil" width="70px" height="70px" class="rounded-circle bg-white" onerror="src='https://i.imgur.com/SrzGe8e.png'">
-            </div>
-            <div class="col-md-9">
-              <h5>{{user.nomeCompleto}}</h5>
+
 
   <div class="container-fluid bg-w-pink">
-    <div class="row">
-      <div class="col-md-1 mt-1 mb-0 point">
-        <p routerLink='/feed'> <i class="fa fa-arrow-left point" aria-hidden="true" routerLink='/feed'></i> Voltar</p>
-      </div>
-    </div>
+   
     <div class="row d-flex m-0 justify-content-center" *ngIf='(user.postagens.length == 0)'>
       <div class="col-md-12 d-flex justify-content-center">
         <h3 class="text-secondary">Não tem nenhuma postagem, <a class="point" routerLink='/feed'>deseja fazer uma agora?</a></h3>
@@ -27,17 +14,16 @@
         <img src="https://i.imgur.com/zs1HqLx.png"  class = "w-100" alt="empty">
       </div>
     </div>
-    <div class="row mt-4"  *ngFor='let i of user.postagens'>
+    <div class="row mt-4" *ngFor='let i of user.postagens'>
       <div class="col-md-12 d-flex justify-content-center">
-        <div class="card bg-light mb-5 w-50">
+        <div class="card bg-light mb-4 w-50">
           <div class="card-header bg-pink">
             <div class="row">
               <div class="col-md-2">
-                <img src="{{user.foto}}" alt="foto perfil" width="70px" height="70px" class="rounded-circle">
+                <img src="{{user.foto}}" alt="foto perfil" width="70px" height="70px" class="rounded-circle bg-white" onerror="src='https://i.imgur.com/SrzGe8e.png'">
               </div>
               <div class="col-md-9">
                 <h5>{{user.nomeCompleto}}</h5>
-
               </div>
               <div class="col-md-1">
 
