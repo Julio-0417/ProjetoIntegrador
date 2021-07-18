@@ -37,7 +37,6 @@ export class FeedComponent implements OnInit {
     this.postagemService.refreshToken()
     this.findAllGrupos()
     this.findAllPostagens()
-    
   }
 
 
@@ -60,12 +59,13 @@ export class FeedComponent implements OnInit {
         this.grupos = resp
         this.alertas.showAlertSuccess('Grupo cadastrado com sucesso!')
         this.grupos = new Grupos()
+        this.findAllGrupos()
       })
-      this.findAllGrupos()
+
     } else {
       this.alertas.showAlertDanger('O nome e tema do grupo precisam ter mais do que 5 caracteres')
     }
-    
+
   }
 
   postar() {
@@ -79,7 +79,7 @@ export class FeedComponent implements OnInit {
     } else {
       this.alertas.showAlertDanger("É necessário que o titulo e a postagem tenham mais de 5 caracteres")
     }
-    
+
   }
 
   entrarGrupo(grupo: Grupos) {
@@ -129,10 +129,10 @@ export class FeedComponent implements OnInit {
     if (grupo.listaParticipantes.length == 0) {
       this.gruposService.deleteGrupos(grupo.idGrupo).subscribe(()=>{
             this.alertas.showAlertSuccess("Grupo apagado com sucesso")
-            this.router.navigate(['/feed'])
+            this.ngOnInit()
         //this.findAllGrupos()
       })
-  
+
     } else {
       this.alertas.showAlertDanger("Não é possível excluir um grupo com membros ativos")
     }
