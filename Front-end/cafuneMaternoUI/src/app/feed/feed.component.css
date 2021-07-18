@@ -80,3 +80,7 @@
 .w-1em {
     width: 1em;
 }
+
+textarea{
+  resize: none;
+}

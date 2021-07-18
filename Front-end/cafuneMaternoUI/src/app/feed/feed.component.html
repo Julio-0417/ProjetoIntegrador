@@ -147,7 +147,7 @@
                       <div class="row mr-4 mt-4">
                         <div class="col-md-12 d-flex justify-content-end">
                           <button class="btn bg-purple text-white input-group-append mb-4"
-                            (click)='postar()'>Enviar</button>
+                            (click)='postar()'>Publicar</button>
                         </div>
                       </div>
                     </div>
@@ -177,7 +177,7 @@
                               {{i.descricaoPostagem}}
                             </p>
                           </div>
-                          <h5 class="card-text "><small class="text-muted d-flex justify-content-end mr-1">{{i.date |
+                          <h5 class="card-text mb-2 mr-1"><small class="text-muted d-flex justify-content-end mr-1">{{i.date |
                               date:
                               'dd/MM/yyyy'}} às
                               {{i.date | date: 'HH:mm'}}</small></h5>
@@ -422,28 +422,31 @@
     aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header bg-w-pink">
           <h5 class="modal-title" id="exampleModalLabel">Criar Grupo</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body bg-w-pink">
           <div class="form-group">
+            <label for="">Nome do grupo:</label>
             <input [(ngModel)]='grupos.nomeGrupo' type="text" class="form-control" id="grupos.nomeGrupo"
               placeholder="Digite o nome do grupo:" (keydown.enter)='cadastrar()'>
           </div>
           <div class="form-group">
+            <label for="">Descrição:</label>
             <input [(ngModel)]='grupos.tema' type="text" class="form-control" id="grupos.tema"
               placeholder="Digite a descrição do tema do grupo:" (keydown.enter)='cadastrar()'>
           </div>
           <div class="form-group">
+            <label for="">Imagem:</label>
             <input [(ngModel)]='grupos.foto' type="text" class="form-control" id="grupos.foto"
               placeholder="Coloque uma foto:">
           </div>
         </div>
-        <div class="modal-footer">
-          <button class="btn btn-light mr-2 bg-pink" (click)='cadastrar()' data-dismiss="modal">Cadastrar</button>
+        <div class="modal-footer bg-w-pink">
+          <button class="btn  mr-2 bg-pink" (click)='cadastrar()' data-dismiss="modal">Cadastrar</button>
           <button type="button" class="btn bg-w-yellow" data-dismiss="modal">Fechar</button>
         </div>
 
@@ -457,34 +460,32 @@
     aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header bg-w-pink">
           <h5 class="modal-title" id="exampleModalLabel">Meus Grupos</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body bg-w-pink">
           <table class="table table-hover">
             <thead>
               <tr>
-                <th scope="col">#</th>
                 <th scope="col">Nome do Grupo</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor='let item of usuarios.listaGrupos'>
-                <th>{{item.idGrupo}}</th>
                 <td>{{item.nomeGrupo}}</td>
                 <td class="d-flex justify-content-end">
-                  <button class="btn bg-purple text-white mr-3" data-dismiss="modal"
+                  <button class="btn bg-purple text-white mr-3 w-100" data-dismiss="modal"
                     [routerLink]="['/pagina-grupo',item.idGrupo]"> Ver </button>
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <div class="modal-footer bg-w-pink">
+          <button type="button" class="btn bg-w-yellow" data-dismiss="modal">Fechar</button>
 
         </div>
       </div>

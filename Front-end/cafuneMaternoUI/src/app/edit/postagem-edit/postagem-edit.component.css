@@ -80,4 +80,8 @@
     font-variant: small-caps;
 }
 
+textarea{
+  resize: none;
+}
+
 
