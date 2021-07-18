@@ -42,7 +42,7 @@ export class GruposService {
 
   deleteGrupos(idGrupo: number){
     let params = new HttpParams().set('idGrupo', idGrupo)
-    return this.http.delete<string>(`https://appcafunematerno.herokuapp.com/grupos/deletar?${params}`, this.token)
+    return this.http.delete(`https://appcafunematerno.herokuapp.com/grupos/deletar?${params}`, this.token)
   }
 
   addGrupo(idUsuario: number, idGrupo: number): Observable<Usuarios>{

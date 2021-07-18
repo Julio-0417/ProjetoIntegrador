@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AjudaSuporteComponent } from './ajuda-suporte/ajuda-suporte.component';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { PostagemDeleteComponent } from './delete/postagem-delete/postagem-delete.component';
 import { DoacaoHigieneComponent } from './doacao-higiene/doacao-higiene.component';
@@ -33,7 +34,8 @@ const routes: Routes = [
   { path: 'usuario-edit/:id', component: UsuarioEditComponent},
   { path: 'doacao-leite', component: DoacaoLeiteComponent},
   { path: 'doacao-higiene', component: DoacaoHigieneComponent},
-  { path: 'doacao-roupa', component: DoacaoRoupaComponent}
+  { path: 'doacao-roupa', component: DoacaoRoupaComponent},
+  { path: 'ajuda-suporte', component: AjudaSuporteComponent}
 
 ];
 

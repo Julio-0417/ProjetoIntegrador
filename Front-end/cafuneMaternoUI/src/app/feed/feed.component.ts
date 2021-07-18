@@ -6,6 +6,7 @@ import { Postagens } from '../model/Postagens';
 import { Usuarios } from '../model/Usuarios';
 import { AlertasService } from '../service/alertas.service';
 import { GruposService } from '../service/grupos.service';
+import { PostagemService } from '../service/postagem.service';
 @Component({
   selector: 'app-feed',
   templateUrl: './feed.component.html',
@@ -22,6 +23,7 @@ export class FeedComponent implements OnInit {
   constructor(
     private router: Router,
     private gruposService: GruposService,
+    private postagemService: PostagemService,
     private alertas: AlertasService
   ) { }
 
@@ -29,9 +31,10 @@ export class FeedComponent implements OnInit {
     window.scroll(0, 0)
     if (environment.token == '') {
       this.router.navigate(['/home'])
-      this.alertas.showAertInfo('É necessário logar novamente')
+      this.alertas.showAlertInfo('É necessário logar novamente')
     }
     this.gruposService.refreshToken()
+    this.postagemService.refreshToken()
     this.findAllGrupos()
     this.findAllPostagens()
   }
@@ -51,22 +54,32 @@ export class FeedComponent implements OnInit {
 
 
   cadastrar() {
-    console.log(environment.idUserLogin)
-    this.gruposService.postGrupos(this.grupos, environment.idUserLogin).subscribe((resp: Grupos) => {
-      this.grupos = resp
-      this.alertas.showAlertSuccess('Grupo cadastrado com sucesso!')
-      this.grupos = new Grupos()
-    })
-    this.findAllGrupos()
+    if (this.grupos.nomeGrupo.length >= 5 && this.grupos.nomeGrupo.length >= 5) {
+      this.gruposService.postGrupos(this.grupos, environment.idUserLogin).subscribe((resp: Grupos) => {
+        this.grupos = resp
+        this.alertas.showAlertSuccess('Grupo cadastrado com sucesso!')
+        this.grupos = new Grupos()
+        this.findAllGrupos()
+      })
+
+    } else {
+      this.alertas.showAlertDanger('O nome e tema do grupo precisam ter mais do que 5 caracteres')
+    }
+
   }
 
   postar() {
-    this.gruposService.postPostagem(this.postagens, environment.idUserLogin).subscribe((resp: Postagens) => {
-      this.postagens = resp
-      this.alertas.showAlertSuccess("Postagem cadastrada com sucesso!")
-      this.postagens = new Postagens()
-    })
-    this.listaPostagens
+    if (this.postagens.tituloPostagem.length >= 5 && this.postagens.descricaoPostagem.length >= 5) {
+        this.gruposService.postPostagem(this.postagens, environment.idUserLogin).subscribe((resp: Postagens) => {
+        this.postagens = resp
+        this.alertas.showAlertSuccess("Postagem cadastrada com sucesso!")
+        this.postagens = new Postagens()
+        this.findAllPostagens()
+      })
+    } else {
+      this.alertas.showAlertDanger("É necessário que o titulo e a postagem tenham mais de 5 caracteres")
+    }
+
   }
 
   entrarGrupo(grupo: Grupos) {
@@ -115,11 +128,11 @@ export class FeedComponent implements OnInit {
 
     if (grupo.listaParticipantes.length == 0) {
       this.gruposService.deleteGrupos(grupo.idGrupo).subscribe(()=>{
-        this.alertas.showAlertSuccess("Grupo apagado com sucesso")
-        console.log("Grupo apagado com sucesso")
+            this.alertas.showAlertSuccess("Grupo apagado com sucesso")
+            this.ngOnInit()
         //this.findAllGrupos()
-        this.router.navigate(['/feed'])
       })
+
     } else {
       this.alertas.showAlertDanger("Não é possível excluir um grupo com membros ativos")
     }

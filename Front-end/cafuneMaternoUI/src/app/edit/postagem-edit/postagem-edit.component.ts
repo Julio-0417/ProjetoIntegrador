@@ -31,7 +31,7 @@ export class PostagemEditComponent implements OnInit {
     window.scroll(0, 0)
     if (environment.token == '') {
       this.router.navigate(['/home'])
-      this.alertas.showAertInfo('É necessário logar novamente')
+      this.alertas.showAlertInfo('É necessário logar novamente')
     }
     this.gruposService.refreshToken()
     this.idPostagem = this.route.snapshot.params['id']
@@ -47,11 +47,15 @@ export class PostagemEditComponent implements OnInit {
   }
 
   atualizar(){
-    this.postagemService.putPostagem(this.postagens, this.idPostagem).subscribe((resp: Postagens) => {
-      this.postagens = resp
-      this.alertas.showAlertSuccess('Postagem atualizada com sucesso')
-      this.router.navigate(['/minhas-postagens',this.idUser])
-    })
+    if (this.postagens.tituloPostagem.length >= 5 && this.postagens.descricaoPostagem.length >= 5) { 
+      this.postagemService.putPostagem(this.postagens, this.idPostagem).subscribe((resp: Postagens) => {
+        this.postagens = resp
+        this.alertas.showAlertSuccess('Postagem atualizada com sucesso')
+        this.router.navigate(['/minhas-postagens',this.idUser])
+      })
+    } else {
+      this.alertas.showAlertDanger("É necessário que o titulo e a postagem tenham mais de 5 caracteres.")
+    }
   }
 
 }

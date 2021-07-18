@@ -20,7 +20,7 @@
                     <h2 class="text-center mb-3">Cadastre-se</h2>
 
                     <div class="form-group">
-                        <label for="nome">Nome</label>
+                        <label for="nome">Nome Completo</label>
                         <input [(ngModel)]='usuarios.nomeCompleto' class="form-control" type="text" name="nome"
                             id="nome" placeholder="Seu nome" (keydown.enter)='cadastrar()'>
                     </div>
@@ -32,32 +32,33 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="foto">Link da Foto</label>
-                        <input [(ngModel)]='usuarios.foto' class="form-control" type="text" name="foto" id="foto"
-                            placeholder="Link da sua foto" (keydown.enter)='cadastrar()'>
-                    </div>
+                      <label for="senha">Senha</label>
+                      <input class="form-control" [type]="pwdType" name="senha" id="senha" placeholder="Sua senha"
+                          (input)='confirmSenha($event)' (keydown.enter)='cadastrar()'>
+                  </div>
 
-                    <div class="form-group">
-                        <label for="senha">Senha</label>
-                        <input class="form-control" [type]="pwdType" name="senha" id="senha" placeholder="Sua senha"
-                            (input)='confirmSenha($event)' (keydown.enter)='cadastrar()'>
-                    </div>
+                  <div class="form-group">
+                    <label for="confirmSenha">Confirmar Senha</label>
+                    <input [(ngModel)]='usuarios.senha' class="form-control" [type]="pwdType" name="confirmSenha"
+                        id="confirmSenha" (keydown.enter)='cadastrar()' placeholder="Confirme sua senha">
+                    <i class="far fa-eye eyetop input-group-append justify-content-end mt-1 mr-2"
+                        (click)='showPass()'></i>
+                  </div>
 
-                    <div class="form-group">
-                        <label for="confirmSenha">Confirmar Senha</label>
-                        <input [(ngModel)]='usuarios.senha' class="form-control" [type]="pwdType" name="confirmSenha"
-                            id="confirmSenha" (keydown.enter)='cadastrar()' placeholder="Confirme sua senha">
-                        <i class="far fa-eye eyetop input-group-append justify-content-end mt-1 mr-2"
-                            (click)='showPass()'></i>
-                    </div>
+                  <div class="form-group">
+                    <label for="foto">Link da Foto</label>
+                    <input [(ngModel)]='usuarios.foto' class="form-control" type="text" name="foto" id="foto"
+                    placeholder="Link da sua foto" (keydown.enter)='cadastrar()'>
+                  </div>
 
-                    <div class="form-group">
-                        <label for="tipo">Tipo de usuário</label>
-                        <select class="form-control" name="tipo" id="tipo" (change)='tipoUser($event)'>
+
+                
+                  <div class="form-group">
+                      <label for="tipo">Tipo de usuário</label>
+                      <select class="form-control" name="tipo" id="tipo" (change)='tipoUser($event)'>
                             <option>Selecione um tipo de usuário</option>
                             <option value="normal">Normal</option>
-                            <option value="adm">Administrador</option>
-                            <option value="usuario-especialista">Usuário Especialista</option>
+                            <option value="usuario-especialista">Especialista</option>
                         </select>
                     </div>
 

@@ -58,13 +58,13 @@
           <div class="tab-content" id="pills-tabContent">
             <div class="tab-pane fade show active" id="pills-feed" role="tabpanel" aria-labelledby="feed">
 
-              <div class="row d-flex justify-content-center ">
+              <div class="row d-flex justify-content-center p-0">
                 <div class="col-md-4 mr-5 mt-4">
                   <div class="d-flex justify-content-center flex-column align-items-center">
                     <table class="table table-borderless bg-white">
                       <thead>
                         <tr>
-                          <th scope="col" class="p-size text-center"><i class="fas fa-book-open"></i>Artigos</th>
+                          <th scope="col" class="p-size text-left"><i class="fas fa-book-open mr-2"></i>Artigos</th>
                         </tr>
                       </thead>
                       <hr>
@@ -119,73 +119,73 @@
                     </table>
                   </div>
                 </div>
+                <div class="col-md-7 mt-4 p-0">
+                  <div class="d-flex justify-content-center flex-column align-items-center">
 
-                <div class="row d-flex justify-content-center p-0">
-                  <div class="col-md-12 mt-4 p-0">
-                    <div class="d-flex justify-content-center flex-column align-items-center">
+                    <div class="table table-borderless bg-white p-3">
 
-                      <div class="table table-borderless bg-white p-3">
-
-                        <div class="d-flex align-items-center">
-                          <div class="flex-shrink-0 mr-3"><i class="fas fa-pencil-alt w-1em"></i></div>
-                          <input [(ngModel)]='postagens.tituloPostagem' type="email" class="form-control bg-cz w-100"
-                            id="titulo" placeholder="Título da Postagem" (keydown.enter)='postar()'>
-                        </div>
+                      <div class="d-flex align-items-center">
+                        <div class="flex-shrink-0 mr-3"><i class="fas fa-pencil-alt w-1em"></i></div>
+                        <input [(ngModel)]='postagens.tituloPostagem' type="email" class="form-control bg-cz w-100"
+                          id="titulo" placeholder="Título da Postagem" (keydown.enter)='postar()'>
+                      </div>
 
 
-                        <div class="d-flex align-items-center mt-3">
-                          <div class="flex-shrink-0 mr-3"><i class="far fa-file-alt w-1em"></i></div>
-                          <input [(ngModel)]='postagens.descricaoPostagem' type="email" class="form-control bg-cz w-100"
-                            id="publicacao" placeholder="O que esta pensando?" (keydown.enter)='postar()'>
-                        </div>
+                      <div class="d-flex align-items-center mt-3">
+                        <div class="flex-shrink-0 mr-3"><i class="far fa-file-alt w-1em"></i></div>
+                        <textarea [(ngModel)]='postagens.descricaoPostagem' type="email" class="form-control bg-cz w-100"
+                          id="publicacao" placeholder="O que esta pensando?" rows="3" (keydown.enter)='postar()'></textarea>
+                      </div>
 
 
-                        <div class="d-flex align-items-center mt-3">
-                          <div class="flex-shrink-0 mr-3"><i class="fas fa-camera-retro text-dark w-1em"></i></div>
-                          <input [(ngModel)]='postagens.urlAnexo' type="email" class="form-control bg-cz w-100"
-                            id="publicacao" placeholder="Coloque aqui o link de uma imagem" (keydown.enter)='postar()'>
-                        </div>
+                      <div class="d-flex align-items-center mt-3">
+                        <div class="flex-shrink-0 mr-3"><i class="fas fa-camera-retro text-dark w-1em"></i></div>
+                        <input [(ngModel)]='postagens.urlAnexo' type="email" class="form-control bg-cz w-100"
+                          id="publicacao" placeholder="Coloque aqui o link de uma imagem" (keydown.enter)='postar()'>
+                      </div>
 
-                        <div class="row mr-4 mt-4">
-                          <div class="col-md-12 d-flex justify-content-end">
-                            <button class="btn bg-purple text-white input-group-append mb-4"
-                              (click)='postar()'>Enviar</button>
-                          </div>
+                      <div class="row mr-4 mt-4">
+                        <div class="col-md-12 d-flex justify-content-end">
+                          <button class="btn bg-purple text-white input-group-append mb-4"
+                            (click)='postar()'>Publicar</button>
                         </div>
                       </div>
                     </div>
-                    <div>
-                      <div class="row mb-4 w-100 ml-0" *ngFor='let i of listaPostagens'>
-                        <div class="col-md-12 p-0">
-                          <div class="card bg-light mb-2" *ngIf='verificaNull(i)'>
-                            <div class="card-header bg-pink">
-                              <div class="row">
-                                <div class="col-md-3">
-                                  <img src="{{i.usuario.foto}}" alt="foto perfil" width="70px" height="70px"
-                                    class="rounded-circle">
-                                </div>
-                                <div class="col-md-8">
-                                  <h5>{{i.usuario.nomeCompleto}}</h5>
-                                
+                  </div>
+                  <div>
+                    <div class="row mb-4 w-100 ml-0" *ngFor='let i of listaPostagens'>
+                      <div class="col-md-12 p-0">
+                        <div class="card bg-light mb-2" *ngIf='verificaNull(i)'>
+                          <div class="card-header bg-pink">
+                            <div class="row">
+                              <div class="col-md-3">
+                                <img src="{{i.usuario.foto}}" alt="foto perfil" width="70px" height="70px"
+                                  class="rounded-circle bg-white" onerror="src='https://i.imgur.com/SrzGe8e.png'">
+                              </div>
+                              <div class="col-md-8">
+                                <h5>{{i.usuario.nomeCompleto}}</h5>
 
-                                </div>
+
                               </div>
                             </div>
-                            <img *ngIf='!(i.urlAnexo == null)' class="card-img-top" src="{{i.urlAnexo}}"
-                              alt="Imagem de capa do card">
-                            <div class="card-body">
-                              <h5 class="card-title">{{i.tituloPostagem}}</h5>
-                              <p class="card-text">
-                                {{i.descricaoPostagem}}
-                              </p>
-                            </div><h5 class="card-text "><small class="text-muted d-flex justify-content-end mr-1">{{i.date | date:
+                          </div>
+                          <img *ngIf='!(i.urlAnexo == null)' class="card-img-top" src="{{i.urlAnexo}}"
+                            alt="Imagem de capa do card">
+                          <div class="card-body">
+                            <h5 class="card-title">{{i.tituloPostagem}}</h5>
+                            <p class="card-text">
+                              {{i.descricaoPostagem}}
+                            </p>
+                          </div>
+                          <h5 class="card-text mb-2 mr-1"><small class="text-muted d-flex justify-content-end mr-1">{{i.date |
+                              date:
                               'dd/MM/yyyy'}} às
                               {{i.date | date: 'HH:mm'}}</small></h5>
-                          </div>
                         </div>
                       </div>
                     </div>
-                    <!--
+                  </div>
+                  <!--
                      <table class="table table-borderless bg-white container text-center">
                        <div class="form-group m-4 input-group mr-3">
                          <h3>Grupos recomendados</h3>
@@ -196,8 +196,8 @@
                        </div>
                        </div>
                      </table> -->
-                  </div>
                 </div>
+
 
               </div>
             </div>
@@ -239,7 +239,8 @@
                     <tbody>
                       <tr *ngFor='let i of listaGrupos'>
                         <td><img src="{{i.foto}}" alt="Imagem do grupo" width="70px" height="70px"
-                            class="rounded-circle"></td>
+                            class="rounded-circle bg-white" onerror="src='https://i.imgur.com/SZf8Xn4.png'">
+                        </td>
                         <td>{{i.nomeGrupo}}</td>
                         <td class="d-flex justify-content-end">
                           <button class="btn btn bg-pink w-100" *ngIf="verificaUsuarioGrupo(i)"
@@ -266,8 +267,8 @@
                   <div class="row d-flex justify-content-center">
                     <div class="col-md-9">
                       <div class="card">
-                        <div class="card-body text-center font-verdana bg-w-purple font-weight-bold">
-                          solidariedade e sororidade
+                        <div class="card-body text-center text-white  bg-w-purple font-weight-bold">
+                          Solidariedade e Sororidade
                         </div>
                       </div>
                     </div>
@@ -295,7 +296,7 @@
                           <p class="card-text text-center font-weight-bold">Higiene Menstrual</p>
                         </div>
                         <img class="card-img-top w-100" src="https://i.imgur.com/k9St2VY.png"
-                          alt="Imagem de capa do card">
+                          alt="Imagem de capa da postagem">
                         <div class="d-flex justify-content-center">
                           <a class="btn bg-purple text-light w-75 mt-2 mb-4" routerLink='/doacao-higiene'
                             role="button">Saiba Mais</a>
@@ -328,7 +329,7 @@
 
                     <div class="bg-white w-100 p-4 mt-4">
                       <div class="dropdown">
-                        <button class="btn bg-l-grey btn-lg w-100" type="button" id="dropdownMenuButton"
+                        <button class="btn bg-l-grey btn-lg w-100 d-flex justify-content-between" type="button" id="dropdownMenuButton"
                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Violência Física <i class="fa fa-angle-down" aria-hidden="true"></i>
                         </button>
@@ -341,7 +342,7 @@
 
 
                       <div class="dropdown mt-4">
-                        <button class="btn bg-l-grey btn-lg w-100" type="button" id="dropdownMenuButton"
+                        <button class="btn bg-l-grey btn-lg w-100 d-flex justify-content-between" type="button" id="dropdownMenuButton"
                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Violência Psicológica <i class="fa fa-angle-down" aria-hidden="true"></i>
                         </button>
@@ -353,7 +354,7 @@
                       </div>
 
                       <div class="dropdown mt-4">
-                        <button class="btn bg-l-grey btn-lg w-100" type="button" id="dropdownMenuButton"
+                        <button class="btn bg-l-grey btn-lg w-100 d-flex justify-content-between" type="button" id="dropdownMenuButton"
                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Violência Sexual <i class="fa fa-angle-down" aria-hidden="true"></i>
                         </button>
@@ -365,7 +366,7 @@
                       </div>
 
                       <div class="dropdown mt-4">
-                        <button class="btn bg-l-grey btn-lg w-100" type="button" id="dropdownMenuButton"
+                        <button class="btn bg-l-grey btn-lg w-100 d-flex justify-content-between" type="button" id="dropdownMenuButton"
                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Violência Patrimonial <i class="fa fa-angle-down" aria-hidden="true"></i>
                         </button>
@@ -379,7 +380,7 @@
                       </div>
 
                       <div class="dropdown mt-4">
-                        <button class="btn bg-l-grey btn-lg w-100" type="button" id="dropdownMenuButton"
+                        <button class="btn bg-l-grey btn-lg w-100 d-flex justify-content-between" type="button" id="dropdownMenuButton"
                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Violência Moral <i class="fa fa-angle-down text-end" aria-hidden="true"></i>
                         </button>
@@ -421,28 +422,31 @@
     aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header bg-w-pink">
           <h5 class="modal-title" id="exampleModalLabel">Criar Grupo</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body bg-w-pink">
           <div class="form-group">
+            <label for="">Nome do grupo:</label>
             <input [(ngModel)]='grupos.nomeGrupo' type="text" class="form-control" id="grupos.nomeGrupo"
               placeholder="Digite o nome do grupo:" (keydown.enter)='cadastrar()'>
           </div>
           <div class="form-group">
+            <label for="">Descrição:</label>
             <input [(ngModel)]='grupos.tema' type="text" class="form-control" id="grupos.tema"
               placeholder="Digite a descrição do tema do grupo:" (keydown.enter)='cadastrar()'>
           </div>
           <div class="form-group">
+            <label for="">Imagem:</label>
             <input [(ngModel)]='grupos.foto' type="text" class="form-control" id="grupos.foto"
               placeholder="Coloque uma foto:">
           </div>
         </div>
-        <div class="modal-footer">
-          <button class="btn btn-light mr-2 bg-pink" (click)='cadastrar()' data-dismiss="modal">Cadastrar</button>
+        <div class="modal-footer bg-w-pink">
+          <button class="btn  mr-2 bg-pink" (click)='cadastrar()' data-dismiss="modal">Cadastrar</button>
           <button type="button" class="btn bg-w-yellow" data-dismiss="modal">Fechar</button>
         </div>
 
@@ -456,34 +460,32 @@
     aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header bg-w-pink">
           <h5 class="modal-title" id="exampleModalLabel">Meus Grupos</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body bg-w-pink">
           <table class="table table-hover">
             <thead>
               <tr>
-                <th scope="col">#</th>
                 <th scope="col">Nome do Grupo</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor='let item of usuarios.listaGrupos'>
-                <th>{{item.idGrupo}}</th>
                 <td>{{item.nomeGrupo}}</td>
                 <td class="d-flex justify-content-end">
-                  <button class="btn bg-purple text-white mr-3" data-dismiss="modal"
+                  <button class="btn bg-purple text-white mr-3 w-100" data-dismiss="modal"
                     [routerLink]="['/pagina-grupo',item.idGrupo]"> Ver </button>
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <div class="modal-footer bg-w-pink">
+          <button type="button" class="btn bg-w-yellow" data-dismiss="modal">Fechar</button>
 
         </div>
       </div>

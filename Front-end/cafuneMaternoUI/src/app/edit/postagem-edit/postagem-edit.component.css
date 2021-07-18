@@ -80,6 +80,8 @@
     font-variant: small-caps;
 }
 
-.point{
-    cursor: pointer;
+textarea{
+  resize: none;
 }
+
+

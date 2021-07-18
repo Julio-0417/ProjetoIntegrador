@@ -19,7 +19,7 @@ export class GrupoEditComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private grupoService: GruposService,
-    private alertas: AlertasService
+    private alertas: AlertasService,
   ) { }
 
   ngOnInit() {

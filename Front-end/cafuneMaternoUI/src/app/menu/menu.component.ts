@@ -20,7 +20,7 @@ export class MenuComponent implements OnInit {
   ngOnInit(){
       window.scroll(0,0)
       if (environment.token == '') {
-        this.alertas.showAertInfo('É necessário logar novamente')
+        this.alertas.showAlertInfo('É necessário logar novamente')
         this.router.navigate(['/home'])
       }
       this.gruposService.refreshToken()

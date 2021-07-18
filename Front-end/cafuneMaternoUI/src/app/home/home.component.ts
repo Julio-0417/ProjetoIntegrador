@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
     window.scroll(0, 0)
     if (environment.token == '') {
       this.router.navigate(['/home'])
-      this.alertas.showAertInfo('É necessário logar novamente')
+      this.alertas.showAlertInfo('É necessário logar novamente')
     }
     this.gruposService.refreshToken()
   }

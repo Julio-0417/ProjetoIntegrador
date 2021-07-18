@@ -109,17 +109,17 @@ public class PostagensService {
 	 * Deleta uma postagem a partir do Id, caso exista.
 	 * @param idPostagem
 	 * @return Retorna um status 400 caso não exista, ou deleta a postagem caso exista.
-	 * @since 1.0
+	 * @since 2.0
 	 * @author Grupo: Angelo, Ellen, Julio, Luciano e Nathalia.
 	 */
-	public ResponseEntity<String> deletarIdPostagem(Long idPostagem){
+	public ResponseEntity<Postagens> deletarIdPostagem(Long idPostagem){
 		Optional<Postagens> idPostagemExistente = repositoryPostagem.findById(idPostagem);
 		
 		if (idPostagemExistente.isEmpty()) {
-			return ResponseEntity.status(400).body("Postagem não localizada. Por favor tente outra.");
+			return ResponseEntity.status(400).build();
 		} else {
 			repositoryPostagem.deleteById(idPostagem);
-			return ResponseEntity.status(200).body("Postagem deletada com sucesso!");
+			return ResponseEntity.status(200).build();
 		}
 	}
 	

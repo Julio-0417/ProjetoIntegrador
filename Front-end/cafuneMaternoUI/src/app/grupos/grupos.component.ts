@@ -38,7 +38,7 @@ export class GruposComponent implements OnInit {
     })
   }
 
-  
+
 
 
 
@@ -52,7 +52,7 @@ export class GruposComponent implements OnInit {
     })
   }
 
-  
+
 
   entrarGrupo(grupo: Grupos) {
     console.log(grupo.idGrupo)
