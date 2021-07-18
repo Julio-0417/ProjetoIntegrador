@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AjudaSuporteComponent } from './ajuda-suporte/ajuda-suporte.component';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { PostagemDeleteComponent } from './delete/postagem-delete/postagem-delete.component';
 import { GrupoEditComponent } from './edit/grupo-edit/grupo-edit.component';
@@ -27,7 +28,8 @@ const routes: Routes = [
   { path: 'postagem-delete/:id', component: PostagemDeleteComponent},
   { path: 'postagem-edit/:id', component: PostagemEditComponent},
   { path: 'pagina-usuario/:id', component: PaginaUsuarioComponent},
-  { path: 'usuario-edit/:id', component: UsuarioEditComponent}
+  { path: 'usuario-edit/:id', component: UsuarioEditComponent},
+  { path: 'ajuda-suporte', component: AjudaSuporteComponent}
 
 ];
 

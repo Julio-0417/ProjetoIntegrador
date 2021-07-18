@@ -23,6 +23,7 @@ import { PostagemDeleteComponent } from './delete/postagem-delete/postagem-delet
 import { UsuarioEditComponent } from './edit/usuario-edit/usuario-edit.component';
 import { AlertasComponent } from './alertas/alertas.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { AjudaSuporteComponent } from './ajuda-suporte/ajuda-suporte.component';
 
 
 
@@ -45,7 +46,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     PostagemEditComponent,
     PostagemDeleteComponent,
     UsuarioEditComponent,
-    AlertasComponent
+    AlertasComponent,
+    AjudaSuporteComponent
 
   ],
   imports: [
