@@ -23,6 +23,9 @@ import { PostagemDeleteComponent } from './delete/postagem-delete/postagem-delet
 import { UsuarioEditComponent } from './edit/usuario-edit/usuario-edit.component';
 import { AlertasComponent } from './alertas/alertas.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { DoacaoLeiteComponent } from './doacao-leite/doacao-leite.component';
+import { DoacaoHigieneComponent } from './doacao-higiene/doacao-higiene.component';
+import { DoacaoRoupaComponent } from './doacao-roupa/doacao-roupa.component';
 
 
 
@@ -45,7 +48,10 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     PostagemEditComponent,
     PostagemDeleteComponent,
     UsuarioEditComponent,
-    AlertasComponent
+    AlertasComponent,
+    DoacaoLeiteComponent,
+    DoacaoHigieneComponent,
+    DoacaoRoupaComponent
 
   ],
   imports: [

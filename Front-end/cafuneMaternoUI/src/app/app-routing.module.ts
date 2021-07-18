@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { PostagemDeleteComponent } from './delete/postagem-delete/postagem-delete.component';
+import { DoacaoHigieneComponent } from './doacao-higiene/doacao-higiene.component';
+import { DoacaoLeiteComponent } from './doacao-leite/doacao-leite.component';
+import { DoacaoRoupaComponent } from './doacao-roupa/doacao-roupa.component';
 import { GrupoEditComponent } from './edit/grupo-edit/grupo-edit.component';
 import { PostagemEditComponent } from './edit/postagem-edit/postagem-edit.component';
 import { UsuarioEditComponent } from './edit/usuario-edit/usuario-edit.component';
@@ -27,7 +30,10 @@ const routes: Routes = [
   { path: 'postagem-delete/:id', component: PostagemDeleteComponent},
   { path: 'postagem-edit/:id', component: PostagemEditComponent},
   { path: 'pagina-usuario/:id', component: PaginaUsuarioComponent},
-  { path: 'usuario-edit/:id', component: UsuarioEditComponent}
+  { path: 'usuario-edit/:id', component: UsuarioEditComponent},
+  { path: 'doacao-leite', component: DoacaoLeiteComponent},
+  { path: 'doacao-higiene', component: DoacaoHigieneComponent},
+  { path: 'doacao-roupa', component: DoacaoRoupaComponent}
 
 ];
 
