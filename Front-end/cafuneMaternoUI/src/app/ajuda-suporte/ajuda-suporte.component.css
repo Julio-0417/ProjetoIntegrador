@@ -84,3 +84,7 @@
 textarea{
 resize: none;
 }
+
+.point{
+  cursor: pointer;
+}
