@@ -36,8 +36,8 @@ const routes: Routes = [
   { path: 'doacao-higiene', component: DoacaoHigieneComponent},
   { path: 'doacao-roupa', component: DoacaoRoupaComponent},
   { path: 'ajuda-suporte', component: AjudaSuporteComponent}
-
 ];
+  
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

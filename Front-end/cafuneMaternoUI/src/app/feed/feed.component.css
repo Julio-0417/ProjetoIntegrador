@@ -84,3 +84,7 @@
 textarea{
   resize: none;
 }
+
+.bg-p-rose {
+    background-color: #f6eded;
+}
