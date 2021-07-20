@@ -36,13 +36,10 @@ public class Postagens {
 	@Size(min = 5, max = 255, message = "Entre 10 e 255 caracteres")
 	private String localizacaoPostagem;
 	
-	@Size(min = 10, max = 255, message = "Entre 10 e 255 caracteres")
 	private String urlAnexo;
 	
-
-	
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JsonIgnoreProperties({"post", "usuario", "listaParticipantes"})
+	@JsonIgnoreProperties({"post"})
 	private Grupos grupoPertencente;
 	
 	@ManyToOne(fetch = FetchType.EAGER)

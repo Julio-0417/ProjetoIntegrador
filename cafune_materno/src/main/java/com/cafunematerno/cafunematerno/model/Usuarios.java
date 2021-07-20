@@ -50,7 +50,7 @@ public class Usuarios {
 	private String pronome;
 
 	@ManyToMany
-	@JsonIgnoreProperties({ "listaParticipantes", "post" })
+	@JsonIgnoreProperties({ "listaParticipantes"})
 	@JoinTable(name = "tb_integra", joinColumns = @JoinColumn(name = "fk_usuario"), inverseJoinColumns = @JoinColumn(name = "fk_grupo"))
 	private List<Grupos> listaGrupos = new ArrayList<>();
 
