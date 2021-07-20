@@ -41,6 +41,7 @@ public class Grupos {
 	@OneToMany(mappedBy = "grupoPertencente", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties({"grupoPertencente"})
 	private List<Postagens> post;
+
 	
 	private String foto;
 	
