@@ -17,7 +17,7 @@ export class PaginaUsuarioComponent implements OnInit {
   user: Usuarios = new Usuarios()
   foto: string
   id: number
-
+  
 
   constructor(
     private router: Router,

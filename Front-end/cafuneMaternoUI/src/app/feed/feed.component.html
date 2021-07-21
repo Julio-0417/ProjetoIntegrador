@@ -146,14 +146,14 @@
 
                       <div class="row mr-4 mt-4">
                         <div class="col-md-12 d-flex justify-content-end">
-                          <button class="btn bg-purple text-white input-group-append mb-4"
-                            (click)='postar()'>Publicar</button>
+                          <button class="btn bg-purple text-white input-group-append mb-4  d-flex align-items-center"
+                            (click)='postar()'><i *ngIf="loading" class="fa fa-spinner fa-spin mr-1" aria-hidden="true"></i>Publicar</button>
                         </div>
                       </div>
                     </div>
                   </div>
                   <div>
-                    <div class="row mb-4 w-100 ml-0" *ngFor='let i of listaPostagens'>
+                    <div class="row mb-4 w-100 ml-0" *ngFor='let i of listaPostagens | orderBy : key : reverse'>
                       <div class="col-md-12 p-0">
                         <div class="card bg-light mb-2" *ngIf='verificaNull(i)'>
                           <div class="card-header bg-pink">
@@ -203,6 +203,7 @@
                         <div class="col-md-12 bg-white p-5">
                           <button type="button" class="btn bg-pink btn-lg w-100 mb-3" data-toggle="modal"
                             data-target="#modalExemplo">
+                            <i *ngIf="loading" class="fa fa-spinner fa-spin" aria-hidden="true"></i>
                             Criar um Grupo
                             <i class="fas fa-plus-circle"></i>
                           </button>
@@ -224,21 +225,24 @@
                   <table class="table table-hover">
 
                     <tbody>
-                      <tr *ngFor='let i of listaGrupos'>
+                      <tr *ngFor='let i of listaGrupos | orderBy : key : reverse'>
                         <td><img src="{{i.foto}}" alt="Imagem do grupo" width="70px" height="70px"
                             class="rounded-circle bg-white" onerror="src='https://i.imgur.com/SZf8Xn4.png'">
                         </td>
                         <td>{{i.nomeGrupo}}</td>
                         <td class="d-flex justify-content-end">
                           <button class="btn btn bg-pink w-100" *ngIf="verificaUsuarioGrupo(i)"
-                            (click)='entrarGrupo(i)'>Participar<i class=" ml-2 fas fa-plus-circle"></i></button>
+                            (click)='entrarGrupo(i)'>
+                            Participar<i class=" ml-2 fas fa-plus-circle"></i></button>
                           <p class="btn btn-outline-secondary aria-disabled w-100" *ngIf="!verificaUsuarioGrupo(i)"
                             [routerLink]="['/pagina-grupo',i.idGrupo]">
                             Membro</p>
                         </td>
                         <td class="d-flex justify-content-end">
                           <button class="btn btn-outline-danger  w-100" *ngIf="verificarUser()"
-                            (click)='deleteGrupo(i)'>Excluir</button>
+                            (click)='deleteGrupo(i)'>
+
+                            Excluir</button>
                         </td>
                       </tr>
                     </tbody>

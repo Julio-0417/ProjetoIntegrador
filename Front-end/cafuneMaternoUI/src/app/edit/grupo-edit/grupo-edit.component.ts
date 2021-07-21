@@ -15,7 +15,7 @@ export class GrupoEditComponent implements OnInit {
   grupo: Grupos = new Grupos()
   grupoAtualizado: Grupos = new Grupos()
   idGrupo: number
-
+  loading = false
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -37,14 +37,15 @@ export class GrupoEditComponent implements OnInit {
     })
   }
   updateGrupo() {
+    this.loading = true
     this.grupoAtualizado.idGrupo = this.grupo.idGrupo
     this.grupoAtualizado.nomeGrupo = this.grupo.nomeGrupo
     this.grupoAtualizado.tema = this.grupo.tema
     this.grupoAtualizado.foto = this.grupo.foto
-
     if (this.grupoAtualizado.nomeGrupo.length >= 5 && this.grupoAtualizado.tema.length >= 5
       && this.grupoAtualizado.nomeGrupo.length <= 45 && this.grupoAtualizado.tema.length <= 45) {
       this.grupoService.putGrupos(this.grupoAtualizado, this.idGrupo).subscribe((resp: Grupos)=>{
+      this.loading = false
       this.grupo = resp
       this.alertas.showAlertSuccess("Grupo Atualizado")
       this.findByIdGrupo(this.idGrupo)

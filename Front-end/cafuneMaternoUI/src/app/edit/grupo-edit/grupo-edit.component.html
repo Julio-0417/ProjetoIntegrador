@@ -17,14 +17,17 @@
         </div>
         <div class="form-group">
           <input [(ngModel)]='grupo.foto' type="text" class="form-control" id="grupo.foto"
-            placeholder="Link da foto do grupo:" (keydown.enter)='updateGrupo()'> 
+            placeholder="Link da foto do grupo:" (keydown.enter)='updateGrupo()'>
         </div>
         <div class="col-md-12 d-flex justify-content-end">
-          <button class="btn bg-w-yellow mb-4 mr-4" (click)='updateGrupo()' >Editar</button>
+          <button class="btn bg-w-yellow mb-4 mr-4" (click)='updateGrupo()' >
+            <i *ngIf="loading" class="fa fa-spinner fa-spin" aria-hidden="true"></i>
+            Editar
+          </button>
           <button class="btn bg-pink mb-4 input-group-append mr-2" [routerLink]="['/pagina-grupo',grupo.idGrupo]">Cancelar</button>
         </div>
       </div>
-  
+
   </div>
- 
+
 </div>
