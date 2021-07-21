@@ -311,74 +311,101 @@
             <div class="tab-pane fade" id="pills-delegacia" role="tabpanel" aria-labelledby="delegacia">
               <div class="container d-flex justify-content-center mb-4">
                 <div class="row">
-                  <div class="col-md-6 d-flex flex-column align-content-center">
+                  <div class="col-md-5 d-flex flex-column align-content-center">
                     <h4 class="text-center p-4 w-100 bg-white rounded">Tipos de Violência</h4>
 
                     <div class="bg-white w-100 p-4 mt-4 mb-2">
-                      <div class="dropdown">
-                        <button class="btn bg-p-rose btn-lg w-100 d-flex justify-content-between" type="button" id="dropdownMenuButton"
-                          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Violência Física <i class="fa fa-angle-down" aria-hidden="true"></i>
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          <p class="p-2">Entendida como qualquer conduta que ofenda a integridade ou saúde corporal da
-                            mulher.</p>
+                    <div id="accordion">
+                      <div class="card rounded mb-2">
+                        <div class="card-header bg-p-rose" id="headingOne">
+                          <h5 class="mb-0">
+                            <button class="btn btn-lg w-100 d-flex justify-content-between outline-none" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                              Violência Física <i class="fa fa-angle-down text-end" aria-hidden="true"></i>
+                            </button>
+                          </h5>
+                        </div>
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                          <div class="card-body">
+                            Entendida como qualquer conduta que ofenda a integridade ou saúde corporal da
+                            mulher.
+                          </div>
                         </div>
                       </div>
 
-                      <div class="dropdown mt-4">
-                        <button class="btn bg-p-rose btn-lg w-100 d-flex justify-content-between" type="button" id="dropdownMenuButton"
-                          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Violência Psicológica <i class="fa fa-angle-down" aria-hidden="true"></i>
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          <p class="p-2">É considerada qualquer conduta que: cause dano emocional e diminuição da
+                      <div class="card  mb-2">
+                        <div class="card-header bg-p-rose" id="headingTwo">
+                          <h5 class="mb-0">
+                            <button class="btn btn-lg w-100 d-flex justify-content-between outline-none" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                              Violência Psicológica <i class="fa fa-angle-down text-end" aria-hidden="true"></i>
+                            </button>
+                          </h5>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                          <div class="card-body">
+                            É considerada qualquer conduta que: cause dano emocional e diminuição da
                             autoestima; prejudique e perturbe o pleno desenvolvimento da mulher; ou vise degradar ou
-                            controlar suas ações, comportamentos, crenças e decisões.</p>
+                            controlar suas ações, comportamentos, crenças e decisões.
+                          </div>
                         </div>
                       </div>
 
-                      <div class="dropdown mt-4">
-                        <button class="btn bg-p-rose btn-lg w-100 d-flex justify-content-between" type="button" id="dropdownMenuButton"
-                          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Violência Sexual <i class="fa fa-angle-down" aria-hidden="true"></i>
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          <p class="p-2">Trata-se de qualquer conduta que constranja a presenciar, a manter ou a
+                      <div class="card  mb-2">
+                        <div class="card-header bg-p-rose" id="headingThree">
+                          <h5 class="mb-0">
+                            <button class="btn btn-lg w-100 d-flex justify-content-between outline-none" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                              Violência Sexual <i class="fa fa-angle-down text-end" aria-hidden="true"></i>
+                            </button>
+                          </h5>
+                        </div>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                          <div class="card-body">
+                            Trata-se de qualquer conduta que constranja a presenciar, a manter ou a
                             participar de relação sexual não desejada mediante intimidação, ameaça, coação ou uso da
-                            força.</p>
+                            força.
+                          </div>
                         </div>
                       </div>
 
-                      <div class="dropdown mt-4">
-                        <button class="btn bg-p-rose btn-lg w-100 d-flex justify-content-between" type="button" id="dropdownMenuButton"
-                          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Violência Patrimonial <i class="fa fa-angle-down" aria-hidden="true"></i>
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          <p class="p-2">Entendida como qualquer conduta que configure retenção, subtração, destruição
+                      <div class="card  mb-2">
+                        <div class="card-header bg-p-rose" id="headingFour">
+                          <h5 class="mb-0">
+                            <button class="btn btn-lg w-100 d-flex justify-content-between outline-none" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                              Violência Patrimonial <i class="fa fa-angle-down text-end" aria-hidden="true"></i>
+                            </button>
+                          </h5>
+                        </div>
+                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                          <div class="card-body">
+                            Entendida como qualquer conduta que configure retenção, subtração, destruição
                             parcial ou total de seus objetos, instrumentos de trabalho, documentos pessoais, bens,
                             valores
                             e direitos ou recursos econômicos, incluindo os destinados a satisfazer suas necessidades.
-                          </p>
+                          </div>
                         </div>
                       </div>
 
-                      <div class="dropdown mt-4">
-                        <button class="btn bg-p-rose btn-lg w-100 d-flex justify-content-between" type="button" id="dropdownMenuButton"
-                          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Violência Moral <i class="fa fa-angle-down text-end" aria-hidden="true"></i>
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          <p class="p-2">É considerada qualquer conduta que configure calúnia, difamação ou injúria.
-                          </p>
+                      <div class="card  mb-2">
+                        <div class="card-header bg-p-rose" id="headingFive">
+                          <h5 class="mb-0">
+                            <button class="btn btn-lg w-100 d-flex justify-content-between outline-none" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                              Violência Moral <i class="fa fa-angle-down text-end" aria-hidden="true"></i>
+                            </button>
+                          </h5>
+                        </div>
+                        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+                          <div class="card-body">
+                            É considerada qualquer conduta que configure calúnia, difamação ou injúria.
+                          </div>
                         </div>
                       </div>
-                      <h6 class="mt-3">Fonte: Instituto Maria da Penha</h6>
                     </div>
+                    <h6 class="mt-3">Fonte: Instituto Maria da Penha</h6>
                   </div>
 
-                  <div class="col-md-6">
+
+                  </div>
+
+                  <div class="col-md-7">
                     <div class="col-md-12 bg-white rounded">
                       <h4 class="text-center p-4 w-100">Encontre uma Delegacia da Mulher</h4>
                     </div>
