@@ -41,6 +41,7 @@ export class PaginaGrupoComponent implements OnInit {
   ) { }
 
   ngOnInit()  {
+    window.scroll(0, 0)
     if(environment.token == '') {
       this.router.navigate(['/home'])
       this.alertas.showAlertInfo('É necessário logar novamente')
