@@ -22,6 +22,7 @@ export class PaginaGrupoComponent implements OnInit {
   idGrupo: number
   qtdMembros: number
   postagens: Postagens = new Postagens()
+  novaPostagem: Postagens = new Postagens()
 
   idUser: number
 
@@ -69,7 +70,6 @@ export class PaginaGrupoComponent implements OnInit {
   }
 
   sairGrupo(grupo: Grupos) {
-    //console.log(grupo.listaParticipantes.length)
     this.grupoService.removerGrupo(environment.idUserLogin, grupo.idGrupo ).subscribe((resp: Usuarios)=>{
       this.usuarios = resp
       this.alertas.showAlertSuccess('Removido com sucesso')
@@ -78,12 +78,17 @@ export class PaginaGrupoComponent implements OnInit {
   }
 
   publicar() {
-    this.grupoService.postPostagem(this.postagens, environment.idUserLogin).subscribe((resp: Postagens) => {
+    this.novaPostagem.tituloPostagem = this.postagens.tituloPostagem
+    this.novaPostagem.descricaoPostagem = this.postagens.descricaoPostagem
+    this.novaPostagem.urlAnexo = this.postagens.urlAnexo
+    this.grupoService.postPostagem(this.novaPostagem, environment.idUserLogin).subscribe((resp: Postagens) => {
       this.postagens = resp
       this.alertas.showAlertSuccess('Postagem cadastrado com sucesso!')
       this.postagens = new Postagens()
+     
     })
     this.listaPostagens
+    
   }
 
   verificarUser() {
@@ -97,7 +102,9 @@ export class PaginaGrupoComponent implements OnInit {
   }
 
   cadastrarPostagem() {
-    if (this.postagens.tituloPostagem.length >= 5 && this.postagens.descricaoPostagem.length >= 5) {
+    console.log(this.postagens)
+    if (this.postagens.tituloPostagem.length >= 5 && this.postagens.descricaoPostagem.length >= 5
+      && this.postagens.descricaoPostagem.length <=255 && this.postagens.tituloPostagem.length <= 45) {
       this.postagens.grupoPertencente = this.grupo
       this.postagemService.postPostagem(this.postagens, this.idUser).subscribe((resp: Postagens)=>{
         this.postagens = resp
@@ -106,7 +113,7 @@ export class PaginaGrupoComponent implements OnInit {
         this.findAllPostagem()
       })
     } else {
-      this.alertas.showAlertDanger("É necessário que o titulo e a postagem tenham mais de 5 caracteres")
+      this.alertas.showAlertDanger("É necessário que o título tenha mais do que 5 caracteres e a postagem deve ter entre 5 e 255 caracteres.")
     }
 
   }
